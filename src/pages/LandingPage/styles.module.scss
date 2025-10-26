@@ -1,0 +1,333 @@
+@use "../../styles/" as *;
+
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 16px;
+
+  .backgroundImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 64px;
+    background-repeat: repeat;
+    background-image: url("http://localhost:3000/foreverBackground.png");
+    opacity: 0.08;
+    pointer-events: none;
+    position: absolute;
+    user-select: none;
+    z-index: 10;
+  }
+
+  .contentWrapper {
+    width: 100%;
+    gap: 30px;
+    max-width: 1920px;
+    display: grid;
+    flex: 1 0 0px;
+    gap: 16px;
+    grid-auto-rows: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(50px, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    justify-content: center;
+    padding: 10px 0px 0px 0px;
+    margin-top: 100px;
+
+    .titleWrapper {
+      align-content: center;
+      align-items: center;
+      display: flex;
+      flex: none;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: 24px;
+      height: min-content;
+      justify-content: flex-start;
+      left: 16px;
+      min-height: 160px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      right: 16px;
+      top: 0;
+      z-index: 1;
+      margin-top: 80px;
+
+      .target {
+        font-size: 50px;
+        left: 50%;
+        position: absolute;
+        transform-origin: 50% 50% 0px;
+        flex-shrink: 0;
+        transition: all 0.6s ease;
+        font-weight: 700;
+        color: var(--theme-mono-black);
+      }
+
+      .targetActive {
+        top: 0;
+        outline: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+
+      .targetDisabled {
+        flex: none;
+        height: auto;
+        top: 240px;
+        white-space: pre;
+        width: auto;
+        z-index: 1;
+        outline: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        transform: translateX(-50%) skewY(12deg);
+        opacity: 1;
+        font-size: 50px;
+      }
+    }
+
+    .tileFrame {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      align-self: start;
+      justify-self: start;
+      z-index: 1;
+      cursor: pointer;
+
+      .tileStyle {
+        backdrop-filter: blur(10px);
+        height: 100%;
+        width: 100%;
+        border-radius: 24px;
+        box-shadow:
+          inset 0px 1px 0px 1px rgba(255, 255, 255, 0.06), 0px 1px 0px 1px rgba(0, 0, 0, 0.02);
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 32px;
+        justify-content: flex-end;
+
+        font-weight: 700;
+        font-size: .8rem;
+        line-height: 1.25rem;
+        color: var(--theme-mono-black);
+        text-decoration: none;
+
+        .tileLowerContent {
+          align-items: center;
+          display: flex;
+          flex: none;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          height: min-content;
+          justify-content: space-between;
+          overflow: hidden;
+          padding: 0;
+          position: relative;
+          width: 100%;
+          // z-index: 2;
+
+          .icon {
+            width: 24px;
+          }
+        }
+      }
+
+      .tileDeepStyle {
+        backdrop-filter: blur(0px);
+        border-radius: 24px;
+        background: var(--theme-tile-background);
+        opacity: 0.08;
+        flex: none;
+        inset: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        transition: all 300ms;
+
+        &:hover {
+          opacity: 0.04;
+        }
+      }
+    }
+
+    .tileOne {
+      grid-column: span 2;
+    }
+
+    .tileTwo {
+      flex: none;
+      grid-column: span 2;
+    }
+
+    .tileThree {
+      display: grid;
+      flex: none;
+      grid-column: span 1;
+      overflow: visible;
+      padding: 0;
+      // z-index: 1;
+    }
+
+    .tileFour {
+      grid-column: span 1;
+    }
+
+    .tileFive {
+      display: grid;
+      gap: 16px;
+      grid-auto-rows: minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(50px, 1fr));
+      grid-template-rows: repeat(1, minmax(0, 1fr));
+      grid-column: span 2;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $deviceTabletWidth) {
+
+  .LandingPage {
+
+    .contentWrapper {
+      grid-auto-rows: minmax(0, 1fr);
+      grid-template-columns: repeat(4, minmax(50px, 1fr));
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      padding: 50px 0px 0px 0px;
+
+      .titleWrapper {
+        margin-top: 80px;
+
+        .target {
+          font-size: 100px;
+        }
+
+        .targetDisabled {
+          font-size: 100px;
+        }
+      }
+
+      .tileFrame {
+        .tileStyle {
+          border-radius: 32px;
+        }
+
+        .tileDeepStyle {
+          border-radius: 32px;
+        }
+      }
+
+      .tileOne {
+        grid-column: span 2;
+      }
+
+      .tileTwo {
+        flex: none;
+        grid-column: span 2;
+      }
+
+      .tileThree {
+        display: grid;
+        flex: none;
+        grid-column: span 3;
+        overflow: visible;
+        padding: 0;
+        // z-index: 1;
+      }
+
+      .tileFour {}
+
+      .tileFive {
+        display: grid;
+        gap: 16px;
+        grid-auto-rows: minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(50px, 1fr));
+        grid-template-rows: repeat(1, minmax(0, 1fr));
+        justify-content: center;
+        overflow: hidden;
+        grid-column: span 4;
+        padding: 0;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: $deviceDesktopWidth) {
+  .LandingPage {
+
+    .contentWrapper {
+      grid-auto-rows: minmax(0, 1fr);
+      grid-template-columns: repeat(4, minmax(50px, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      padding: 80px 0px 0px 0px;
+
+      .titleWrapper {
+        margin-top: 80px;
+
+        .target {
+          font-size: 130px;
+        }
+
+        .targetDisabled {
+          font-size: 130px;
+        }
+      }
+
+      .tileFrame {
+        .tileStyle {
+          border-radius: 32px;
+        }
+
+        .tileDeepStyle {
+          border-radius: 32px;
+        }
+      }
+
+      .tileOne {
+        grid-column: span 1;
+      }
+
+      .tileTwo {
+        flex: none;
+        grid-column: span 3;
+      }
+
+      .tileThree {
+        display: grid;
+        flex: none;
+        grid-column: span 2;
+        overflow: visible;
+        padding: 0;
+        // z-index: 1;
+      }
+
+      .tileFour {}
+
+      .tileFive {
+        display: grid;
+        gap: 16px;
+        grid-auto-rows: minmax(0, 1fr);
+        grid-template-columns: repeat(1, minmax(50px, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        grid-column: span 1;
+        justify-content: center;
+        overflow: hidden;
+        padding: 0;
+      }
+    }
+  }
+}

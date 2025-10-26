@@ -1,0 +1,100 @@
+@use "../../../styles/" as *;
+
+.AppsTile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    .tileStyle {
+        backdrop-filter: blur(10px);
+        height: 100%;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow:
+            inset 0px 1px 0px 1px rgba(255, 255, 255, 0.06), 0px 1px 0px 1px rgba(0, 0, 0, 0.02);
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        justify-content: flex-end;
+        padding: 8px;
+        gap: 20px;
+
+        &:hover .imageWrapper img {
+            transform: scale(0.97);
+        }
+
+        .imageWrapper {
+            flex: 0 0 auto;
+
+            img {
+                border-radius: 20px;
+                transition: transform 0.6s ease;
+            }
+        }
+
+        .textWrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px 10px 10px 10px;
+
+            .appTitle {
+                font-size: 18px;
+            }
+
+            .appTopic {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--theme-mono-grey);
+            }
+        }
+    }
+
+    .tileDeepStyle {
+        backdrop-filter: blur(0px);
+        border-radius: 24px;
+        background: var(--theme-tile-background);
+        opacity: 0.08;
+        flex: none;
+        inset: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        transition: all 300ms;
+
+        &:hover {
+            opacity: 0.04;
+        }
+    }
+
+}
+
+@media screen and (min-width: $deviceDesktopWidth) {
+    .AppsTile {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        .tileStyle {
+            border-radius: 24px;
+            padding: 14px;
+            gap: 20px;
+
+            .textWrapper {
+                .appTitle {
+                    font-size: 20px;
+                }
+
+                .appTopic {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
