@@ -13,16 +13,17 @@ const AppsTile: React.FC<AppsTileProps> = ({ appTitle = "Title", appTopic = "Top
             className={classes.AppsTile}
         // style={{ width: size, height: size }}
         >
-            <a href={appLink} className={classes.tileStyle}>
+            <a href={appLink} className={classes.tileStyle} target="_blank"
+                rel="noopener noreferrer">
 
                 <div className={classes.imageWrapper}>
-                <img src={appImg}></img>
-            </div>
+                    <img src={appImg}></img>
+                </div>
 
-            <div className={classes.textWrapper}>
-                <p className={classes.appTitle}>{appTitle}</p>
-                <p className={classes.appTopic}>{appTopic}</p>
-            </div>
+                <div className={classes.textWrapper}>
+                    <p className={classes.appTitle}>{appTitle}</p>
+                    <p className={classes.appTopic}>{appTopic}</p>
+                </div>
 
                 <div className={classes.tileDeepStyle}></div>
             </a>

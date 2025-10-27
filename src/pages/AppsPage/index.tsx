@@ -1,16 +1,19 @@
 import classes from "./styles.module.scss";
 import AppsTile from "./AppsTile";
 import Footer from "../../components/Footer";
+import { cloudWeather, nook, studio35, codingAid, theIsles, planr, storystash, cryptoNotify, shortform } from "../../assets/images"; 
 
 export const AppsPage = () => {
 
     const apps = [
-        { title: "Storystash", topic: "Social Media", link: "", img: "https://framerusercontent.com/images/JAuzg1K8J6MK83hAIIrvRYRaf8.webp" },
-        { title: "Shortform", topic: "Generative AI", link: "", img: "https://framerusercontent.com/images/93E7FcdSSqHVNH5lLB9gLOZd20.webp"  },
-        { title: "CodingAid", topic: "AI Assistant", link: "", img: "https://framerusercontent.com/images/eO0GqBm897hz4DedM2o4BNk0Og.webp"  },
-        { title: "CloudWeather", topic: "Well...Weather", link: "", img: "https://framerusercontent.com/images/suNAtAxC3jc1slGxH2TAGQ4rtp0.webp"  },
-        { title: "CryptoNotify", topic: "Trading Assistant", link: "", img: "https://framerusercontent.com/images/WWkZxpeT2EaVFcbABkjOiVgjd9U.webp"  },
-        { title: "LitePlanr", topic: "Productivity", link: "", img: "https://framerusercontent.com/images/JAuzg1K8J6MK83hAIIrvRYRaf8.webp"  },
+        { title: "Storystash", topic: "Social Media", link: "https://apps.apple.com/us/app/storystash/id6737708781", img: storystash },
+        { title: "Shortform", topic: "Generative AI", link: "https://www.shortform.veswip.com/", img: shortform  },
+        { title: "CodingAid", topic: "AI Assistant", link: "https://apps.apple.com/us/app/codingaid/id6474641708", img: codingAid  },
+        { title: "CloudWeather", topic: "Well...Weather", link: "https://apps.apple.com/us/app/cloudweather/id6472477868", img: cloudWeather  },
+        { title: "CryptoNotify", topic: "Trading Assistant", link: "https://apps.apple.com/us/app/cryptonotify/id6737062532", img: cryptoNotify  },
+        { title: "LitePlanr", topic: "Productivity", link: "https://apps.apple.com/us/app/liteplanr/id6475203997", img: planr  },
+        { title: "Nook", topic: "Ecommerce", link: "https://nook-apnx.onrender.com/", img: nook  },
+        { title: "Studio35", topic: "Portfolio Template", link: "https://studio35.onrender.com/", img: studio35  },
     ]
 
     return (

@@ -15,7 +15,7 @@
     height: 100%;
     background-size: 64px;
     background-repeat: repeat;
-    background-image: url("http://localhost:3000/foreverBackground.png");
+    background-image: url("http://wwww.veswip.com/foreverBackground.png");
     opacity: 0.08;
     pointer-events: none;
     position: absolute;
@@ -115,12 +115,12 @@
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-        padding: 32px;
+        padding: 24px;
         justify-content: flex-end;
 
         font-weight: 700;
         font-size: .8rem;
-        line-height: 1.25rem;
+        line-height: 1rem;
         color: var(--theme-mono-black);
         text-decoration: none;
 
@@ -139,7 +139,7 @@
           // z-index: 2;
 
           .icon {
-            width: 24px;
+            width: 18px;
           }
         }
       }
@@ -223,6 +223,12 @@
       .tileFrame {
         .tileStyle {
           border-radius: 32px;
+          padding: 32px;
+          .tileLowerContent {
+            .icon {
+              width: 24px;
+            }
+          }
         }
 
         .tileDeepStyle {
