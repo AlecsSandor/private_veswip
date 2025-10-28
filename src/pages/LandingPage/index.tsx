@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import MainButton from "../../components/MainButton";
 import { SvgIcon } from "../../components/SvgIcon";
+import GithubActivity from "./GithubActivity";
 
 import clsx from "clsx";
 
@@ -70,7 +71,7 @@ export const LandingPage = () => {
                     </div>
                 </div>
                 <div className={clsx(classes.tileFour, classes.tileFrame)}>
-
+                    <GithubActivity />
                 </div>
                 <div className={clsx(classes.tileFive, classes.tileFrame)}>
                     <div className={classes.tileStyle}>
