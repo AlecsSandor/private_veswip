@@ -1,9 +1,10 @@
 import classes from "./styles.module.scss";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import MainButton from "../../components/MainButton";
+import SpecialButton from "../../components/SpecialButton";
 import { SvgIcon } from "../../components/SvgIcon";
 import GithubActivity from "./GithubActivity";
+import CodeAnimation from "../../components/CodeAnimation";
 
 import clsx from "clsx";
 
@@ -40,13 +41,13 @@ export const LandingPage = () => {
                     <div id="target-5" className={clsx(
                         classes.target,
                         activeTarget === "5" ? classes.targetActive : classes.targetDisabled
-                    )}>Other</div>
+                    )}>Empty</div>
                 </div>
 
                 <div className={clsx(classes.tileFrame, classes.tileOne)}>
-                    <div className={classes.tileStyle} onClick={() => navigate("/")}>
+                    <div className={classes.tileStyle} onClick={() => navigate("/about")}>
                         <div className={classes.tileLowerContent}>
-                            <MainButton title="About" hovered={activeTarget === "1"} />
+                            <SpecialButton title="About" hovered={activeTarget === "1"} />
                             <SvgIcon name={"arrow"} className={classes.icon} />
                         </div>
                         <div className={classes.tileDeepStyle} data-target="1" onMouseEnter={() => handleHover("1")} onMouseLeave={() => handleHover("0")}></div>
@@ -55,7 +56,7 @@ export const LandingPage = () => {
                 <div className={clsx(classes.tileTwo, classes.tileFrame)}>
                     <div className={classes.tileStyle} onClick={() => navigate("/apps")}>
                         <div className={classes.tileLowerContent}>
-                            <MainButton title="Apps" hovered={activeTarget === "2"} />
+                            <SpecialButton title="Apps" hovered={activeTarget === "2"} />
                             <SvgIcon name={"arrow"} className={classes.icon} />
                         </div>
                         <div className={classes.tileDeepStyle} data-target="2" onMouseEnter={() => handleHover("2")} onMouseLeave={() => handleHover("0")}></div>
@@ -64,7 +65,7 @@ export const LandingPage = () => {
                 <div className={clsx(classes.tileThree, classes.tileFrame)}>
                     <div className={classes.tileStyle} onClick={() => navigate("/contact")}>
                         <div className={classes.tileLowerContent}>
-                            <MainButton title="Contact" hovered={activeTarget === "3"} />
+                            <SpecialButton title="Contact" hovered={activeTarget === "3"} />
                             <SvgIcon name={"arrow"} className={classes.icon} />
                         </div>
                         <div className={classes.tileDeepStyle} data-target="3" onMouseEnter={() => handleHover("3")} onMouseLeave={() => handleHover("0")}></div>
@@ -74,14 +75,14 @@ export const LandingPage = () => {
                     <GithubActivity />
                 </div>
                 <div className={clsx(classes.tileFive, classes.tileFrame)}>
-                    <div className={classes.tileStyle}>
-
+                    <div className={classes.tileStyleSpecial}>
+                        <CodeAnimation />
                         <div className={classes.tileDeepStyle}></div>
                     </div>
 
                     <div className={classes.tileStyle} onClick={() => navigate("/")}>
                         <div className={classes.tileLowerContent}>
-                            <MainButton title="Other" hovered={activeTarget === "5"} />
+                            <SpecialButton title="Empty" hovered={activeTarget === "5"} />
                             <SvgIcon name={"arrow"} className={classes.icon} />
                         </div>
                         <div className={classes.tileDeepStyle} data-target="5" onMouseEnter={() => handleHover("5")} onMouseLeave={() => handleHover("0")}></div>

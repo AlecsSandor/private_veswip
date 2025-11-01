@@ -1,57 +1,92 @@
-.MainButton {
-    position: relative;
-    min-width: 80px;
+@use "../../styles/" as *;
 
-    .titleWrapper {
-        display: flex;
-        flex: none;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        height: min-content;
-        justify-content: flex-start;
-        left: 0px;
-        height: 22px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        right: 0px;
-        top: -7px;
-        z-index: 1;
+.Button {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: fit-content;
+  min-width: 90px;
+  padding: 10px 17px;
+  border-radius: 8px;
+  font-family: var(--theme-primary-font-family);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 0.75rem;
+  transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 
-        .target {
-            font-size: 18px;
-            //left: 50%;
-            position: absolute;
-            // transform-origin: 50% 50% 0px;
-            flex-shrink: 0;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-        }
+  .icon {
+    width: 14px;
+  }
 
-        .targetActive {
-            top: 0;
-            outline: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            // transform: translateX(-50%);
-            z-index: 1;
-        }
+  &.primary {
+    color: #F4F4F5;
+    background-color: #1C2025;
+    box-shadow: 0 0 0 1px #e0ebff00;
 
-        .targetDisabled {
-            flex: none;
-            height: auto;
-            top: 100px;
-            white-space: pre;
-            width: auto;
-            z-index: 1;
-            outline: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transform: skewY(50deg);
-            opacity: 1;
-            font-size: 18px;
-        }
+    &:not(.disabled):hover {
+      color: #e0ebff;
+      background-color: #34393f;
+      box-shadow: 0 0 0 1px #e0ebff, 0 2px 4px #e0ebff, 0 12px 24px #e0ebff;
     }
+
+    &.disabled {
+      background-color: #4a4f54;
+    }
+  }
+
+  &.secondary {
+    color: var(--mono-white);
+    background-color: var(--mono-blue-1);
+
+    &:not(.disabled):hover {
+      color: var(--mono-black-2);
+      background-color: var(--mono-grey-5);
+    }
+  }
+
+  &.tertiary {
+    color: var(--mono-gray-4);
+    background-color: var(--mono-gray-1);
+
+    &:not(.disabled):hover {
+      color: var(--mono-gray-4);
+      background-color: var(--mono-gray-2);
+    }
+
+    &.disabled {
+      color: var(--mono-gray-2);
+      background-color: var(--mono-gray-1);
+    }
+  }
+
+  &.orange {
+    color: #fff;
+    background-color: #eb6f19;
+
+    &:not(.disabled):hover {
+      background-color: #eda472;
+    }
+
+    &.disabled {
+      background-color: #eda472;
+    }
+  }
+}
+
+@media screen and (min-width: $deviceTabletWidth) {
+  .Button {
+    &:not(.disabled) {
+      cursor: pointer;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.fullWidth {
+  width: 100%;
 }

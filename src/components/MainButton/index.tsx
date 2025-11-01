@@ -1,40 +1,48 @@
 import clsx from "clsx";
+import { SvgIcon, IconNames } from "../SvgIcon";
 import classes from "./styles.module.scss";
 
 export interface MainButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
-  hovered?: boolean;
+  icon?: IconNames;
+  variant?: "primary" | "secondary" | "tertiary";
+  color?: "orange";
+  fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 export const MainButton: React.FC<MainButtonProps> = ({
   title,
-  hovered,
+  icon,
+  variant = "primary",
   className,
   children,
+  fullWidth,
   color = "",
+  disabled = false,
   ...rest
 }) => {
+
   return (
-    <div
-      className={clsx(classes.MainButton)}
+    <button
+      className={clsx(classes.Button, className, classes[variant], {
+        [classes[color]]: color,
+        [classes.fullWidth]: fullWidth,
+        [classes.disabled]: disabled,
+      })}
+      disabled={disabled}
+      {...rest}
     >
       {children ? (
         children
       ) : (
-        <div className={classes.titleWrapper} >
-          <div id="target-1" className={clsx(
-            classes.target,
-            hovered ? classes.targetActive : classes.targetDisabled
-          )}>• {title}</div>
-
-          <div id="target-2" className={clsx(
-            classes.target,
-            !hovered ? classes.targetActive : classes.targetDisabled
-          )}>{title}</div>
-        </div>
+        <>
+          {title}
+          {icon && <SvgIcon name={icon} className={classes.icon} />}
+        </>
       )}
-    </div>
+    </button>
   );
 };
 

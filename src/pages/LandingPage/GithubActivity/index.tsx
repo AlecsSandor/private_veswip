@@ -10,8 +10,8 @@ export interface GithubActivityProps {
 }
 
 export const GithubActivity: React.FC<GithubActivityProps> = ({
-  rows = 10,
-  cols = 10,
+  rows = 20,
+  cols = 20,
   interval = 300,
   changeRate = 0.1,
 }) => {

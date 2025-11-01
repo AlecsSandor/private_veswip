@@ -1,5 +1,6 @@
 import classes from "./styles.module.scss";
 import Footer from "../../components/Footer";
+import ContactForm from "../../components/ContactForm";
 
 export const ContactPage = () => {
 
@@ -8,11 +9,11 @@ export const ContactPage = () => {
             <div className={classes.contentWrapper}>
 
                 <h2 className={classes.title}>
-                    Dive into a few projects that represent my most fulfilling design experiences.
+                    Let's Connect
                 </h2>
 
                 <div className={classes.appsWrapper}>
-                   
+                    <ContactForm />
                 </div>
 
                 <Footer />

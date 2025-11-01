@@ -1,0 +1,96 @@
+@use "../../styles/" as *;
+
+.ContactForm {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    // background: var(--theme-background-secondary);
+    // border-radius: 12px;
+    // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    // border: 1px solid var(--theme-border);
+
+    .formTitle {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--theme-mono-black);
+        //margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .fieldGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .label {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--theme-mono-black);
+    }
+
+    .input,
+    .textarea {
+        padding: 12px 16px;
+        border: 2px solid var(--theme-border);
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: inherit;
+        background: rgba(219, 219, 219, 0.318);
+        color: var(--theme-mono-black);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--theme-accent);
+            box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.1);
+        }
+
+        &::placeholder {
+            color: var(--theme-mono-gray);
+        }
+    }
+
+    .textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .inputError {
+        border-color: #e74c3c;
+
+        &:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+    }
+
+    .error {
+        font-size: 14px;
+        color: #e74c3c;
+        font-weight: 500;
+    }
+
+    .submitButton {
+        align-self: flex-start;
+        margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: calc($deviceTabletWidth - 1px)) {
+    .ContactForm {
+        padding: 24px;
+        // margin: 0 16px;
+
+        .formTitle {
+            font-size: 24px;
+        }
+    }
+}
